@@ -1,0 +1,28 @@
+*{
+    font-family: 'Inter', sans-serif;
+    margin: 0px;
+}
+#icon{
+    width: 5vh;
+}
+
+.side-panel{
+    width: 15%;
+}
+
+.side-nav{
+    display: flex;
+    flex-direction: column;
+}
+
+#nav-item{
+    display: flex;
+    align-items: center;
+    gap: 1vh;
+    height: 10vh;
+}
+
+.active{
+    color: white;
+    background: #202020;
+}

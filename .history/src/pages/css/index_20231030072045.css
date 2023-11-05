@@ -1,0 +1,9 @@
+.page{
+    display: flex;
+    flex-direction: row;
+}
+
+.top-bar{
+    display: flex;
+    width: 100%;
+}

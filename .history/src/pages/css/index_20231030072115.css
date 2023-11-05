@@ -1,0 +1,11 @@
+.page{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.top-bar{
+    display: flex;
+    width: 100%;
+    color: green;
+}

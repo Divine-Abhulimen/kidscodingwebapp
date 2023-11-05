@@ -1,0 +1,149 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Kanit";
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    width: 100%;
+    background-image: url("../css/images/background.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    backdrop-filter: blur(4px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container{
+    width: 70%;
+    height: 70%;
+    background-color: #7b506f;
+    display: flex;
+    gap: 3vh;
+    padding: 10vh;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    border: 3px solid #ead7d1;
+    border-radius: 15px;
+}
+
+.profile-pic{
+    background: #ead7d1;
+    background-image: url('./images/profile.jpg');
+    background-position: center;
+    background-size: 200%;
+    border: 5px solid #ead7d1;
+    border-radius: 50%;
+    height: 30vh;
+    width: 30vh;
+}
+
+#name{
+    font-size: 40px;
+    color: #ead7d1;
+}
+
+.btn{
+    font-size: 23px;
+    background-color: #1f1a38;
+    color: #dd99bb;
+    font-weight: 900;
+    cursor: pointer;
+    font-size: 20.5px;
+    border-radius: 10px;
+    border: 2px solid #ead7d1;
+    padding: 1vh;
+    text-decoration: none;
+}
+
+.container {
+    border: 6px solid;
+    padding: 3vh;
+    border-image: conic-gradient(from var(--angle), var(--c2), var(--c1) 0.1turn, var(--c1) 0.15turn, var(--c2) 0.25turn) 30;
+    animation: borderRotate var(--d) linear infinite forwards;
+}
+
+:root {
+    --d: 3s;
+    --angle: 90deg;
+    --gradX: 100%;
+    --gradY: 50%;
+    --c1: #dd99bb;
+    --c2: #1f1a38;
+}
+
+@property --angle {
+    syntax: '<angle>';
+    initial-value: 90deg;
+    inherits: true;
+}
+
+@property --gradX {
+    syntax: '<percentage>';
+    initial-value: 50%;
+    inherits: true;
+}
+
+@property --gradY {
+    syntax: '<percentage>';
+    initial-value: 0%;
+    inherits: true;
+}
+
+@keyframes borderRotate {
+    100% {
+        --angle: 420deg;
+    }
+}
+
+@keyframes borderRadial {
+    20% {
+        --gradX: 100%;
+        --gradY: 50%;
+    }
+
+    40% {
+        --gradX: 100%;
+        --gradY: 100%;
+    }
+
+    60% {
+        --gradX: 50%;
+        --gradY: 100%;
+    }
+
+    80% {
+        --gradX: 0%;
+        --gradY: 50%;
+    }
+
+    100% {
+        --gradX: 50%;
+        --gradY: 0%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .profile-pic{
+        background: white;
+        border: 1px solid white;
+        border-radius: 50%;
+        height: 15vh;
+        width: 15vh;
+    }
+
+    .container{
+        padding: 4vh;
+    }
+}
+
+.options{
+    display: flex;
+    flex-direction: row;
+    gap: 10vh;
+}

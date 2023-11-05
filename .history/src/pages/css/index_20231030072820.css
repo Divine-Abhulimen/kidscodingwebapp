@@ -1,0 +1,25 @@
+.page{
+    display: flex;
+    flex-direction: row;
+}
+
+.content{
+    width: 85%;
+}
+
+.top-bar{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    padding: 5vh 3vh 0vh 3vh;
+}
+
+.top-text{
+    flex-direction: column;
+}
+
+.top-image{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}

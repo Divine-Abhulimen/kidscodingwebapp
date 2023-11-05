@@ -1,0 +1,14 @@
+.page{
+    display: flex;
+    flex-direction: row;
+}
+
+.content{
+    
+}
+
+.top-bar{
+    display: flex;
+    width: 100%;
+    background: green;
+}
