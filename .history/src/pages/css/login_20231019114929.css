@@ -1,0 +1,153 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Kanit";
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    gap: 4vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url("../css/images/background.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    backdrop-filter: blur(4px);
+    min-width: min(40rem, 100%);
+}
+
+.title {
+    color: #ead7d1;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.container {
+    font-size: 20px;
+    width: 59vh;
+    height: 59vh;
+    background-color: #7b506f;
+    border-radius: 15px;
+    border: 3px solid #ead7d1;
+}
+
+.login-form {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-form form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3vh;
+}
+
+input {
+    background-color: #dbcdc6;
+}
+
+input,
+button {
+    font-size: 20px;
+    border-radius: 10px;
+    border: 2px solid #ead7d1;
+    height: 5vh;
+    width: 110%;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+button {
+    background-color: #1f1a38;
+    color: #dd99bb;
+    font-weight: 900;
+    cursor: pointer;
+}
+
+a:hover {
+    color: #dd99bb;
+}
+
+a {
+    color: #ead7d1;
+}
+
+form span {
+    color: #ead7d1;
+    font-weight: bolder;
+}
+
+.container {
+    border: 6px solid;
+    padding: 3vh;
+    border-image: conic-gradient(from var(--angle), var(--c2), var(--c1) 0.1turn, var(--c1) 0.15turn, var(--c2) 0.25turn) 30;
+    animation: borderRotate var(--d) linear infinite forwards;
+}
+
+:root {
+    --d: 3s;
+    --angle: 90deg;
+    --gradX: 100%;
+    --gradY: 50%;
+    --c1: #dd99bb;
+    --c2: #1f1a38;
+}
+
+@property --angle {
+    syntax: '<angle>';
+    initial-value: 90deg;
+    inherits: true;
+}
+
+@property --gradX {
+    syntax: '<percentage>';
+    initial-value: 50%;
+    inherits: true;
+}
+
+@property --gradY {
+    syntax: '<percentage>';
+    initial-value: 0%;
+    inherits: true;
+}
+
+@keyframes borderRotate {
+    100% {
+        --angle: 420deg;
+    }
+}
+
+@keyframes borderRadial {
+    20% {
+        --gradX: 100%;
+        --gradY: 50%;
+    }
+
+    40% {
+        --gradX: 100%;
+        --gradY: 100%;
+    }
+
+    60% {
+        --gradX: 50%;
+        --gradY: 100%;
+    }
+
+    80% {
+        --gradX: 0%;
+        --gradY: 50%;
+    }
+
+    100% {
+        --gradX: 50%;
+        --gradY: 0%;
+    }
+}

@@ -1,6 +1,6 @@
 import React from 'react'
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-import './css/login.css'; 
+
 function signup() {
     const auth = getAuth();
     createUserWithEmailAndPassword(auth, email, password)
@@ -15,8 +15,8 @@ function signup() {
             // ..
         });
     return (
-        <div className='signin'>
-            
+        <div className=''>
+
         </div>
     )
 }

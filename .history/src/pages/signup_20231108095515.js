@@ -16,7 +16,7 @@ function signup() {
         });
     return (
         <div className='signin'>
-            
+
         </div>
     )
 }
