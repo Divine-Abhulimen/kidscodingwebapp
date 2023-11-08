@@ -1,23 +1,23 @@
 import React, { useState } from 'react';
-import { auth } from '../config';
-import { signInWithEmailAndPassword } from 'firebase/auth'; 
-import { Link } from 'react-router-dom'
-const SignIn = () => {
+import { auth } from './config';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+
+const SignUp = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleSignIn = async () => {
+  const handleSignUp = async () => {
     try {
-      await signInWithEmailAndPassword(auth, email, password);
-      // User signed in successfully
+      await createUserWithEmailAndPassword(auth, email, password);
+      // User signed up successfully
     } catch (error) {
-      console.error('Error signing in:', error);
+      console.error('Error signing up:', error);
     }
   };
 
   return (
     <div>
-      <h2>Sign In</h2>
+      <h2>Sign Up</h2>
       <form>
         <div>
           <label>Email:</label>
@@ -35,15 +35,12 @@ const SignIn = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
-        <button type="button" onClick={handleSignIn}>
-          Sign In
+        <button type="button" onClick={handleSignUp}>
+          Sign Up
         </button>
-        <p>
-        Don't have an account? <Link to="/signup">Sign Up</Link>
-      </p>
       </form>
     </div>
   );
 };
 
-export default SignIn;
+export default SignUp;
