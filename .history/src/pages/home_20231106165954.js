@@ -67,7 +67,7 @@ function Home() {
 
                 <div className='full-width'>
                     {courseData.map((course) => (
-                        <div className='grow'>
+                        <div className='row'>
                             <p id='courseN'>{course.Name}</p>
                             <button className='btn btn-danger' id="view">View</button>
                         </div>

@@ -95,9 +95,3 @@
     display: flex;
     align-items: center;
 }
-
-#view{
-    width: 6.5%;
-    background: #FF8700;
-    border: 1px solid #FF8700;
-}
