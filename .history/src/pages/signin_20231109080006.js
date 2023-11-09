@@ -1,18 +1,18 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom'; // Import Link and useNavigate
+import { Link, useHistory } from 'react-router-dom'; // Import Link and useHistory
 import { auth } from '../config';
 import { signInWithEmailAndPassword } from 'firebase/auth'; 
 
 const SignIn = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const navigate = useNavigate(); // Initialize useNavigate
+  const history = useHistory(); // Initialize useHistory
 
   const handleSignIn = async () => {
     try {
       await signInWithEmailAndPassword(auth, email, password);
       // User signed in successfully
-      navigate('/profile'); // Navigate to the profile page
+      history.push('/profile'); // Navigate to the profile page
     } catch (error) {
       console.error("Error signing in:", error);
     }
