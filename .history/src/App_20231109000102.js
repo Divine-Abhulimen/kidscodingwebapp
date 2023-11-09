@@ -35,7 +35,7 @@ function App() {
         <Route path="/signin" element={<SignIn />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/profile" element={<Profile />} />
-        {/* Add a new route for the AdditionalInfo form */}
+        {/* Add a new route for the AdditionalInfo form */
         <Route
           path="/additionalinfo"
           element={

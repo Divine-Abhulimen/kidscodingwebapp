@@ -1,20 +1,20 @@
 import React, { useState } from 'react';
 import { auth } from '../config';
 import { signInWithEmailAndPassword } from 'firebase/auth';
-import { useNavigate } from 'react-router-dom'; // Import the useNavigate hook
+import { useNavigate } from 'react-router-dom';
 
 const SignIn = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const navigate = useNavigate(); // Get the navigate function
+  const navigate = useNavigate();
 
   const handleSignIn = async () => {
     try {
       await signInWithEmailAndPassword(auth, email, password);
       // User signed in successfully
 
-      // Redirect to the Profile page after successful sign-in
-      navigate('/profile'); // Use the navigate function
+      // Redirect to the dashboard after successful sign-in
+      navigate('/dashboard');
     } catch (error) {
       console.error('Error signing in:', error);
     }

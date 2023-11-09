@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
-import { onAuthStateChanged } from 'firebase/auth'; // Import the Firebase auth module
+import { onAuthStateChanged } from 'firebase/auth'; // Import the Firebase auth module 
 import { auth } from './config';
 import Home from './pages/home';
 import SignIn from './pages/signin';
 import SignUp from './pages/signup';
 import AdditionalInfo from './pages/additionalinfo'; // Import the AdditionalInfo component
-import Profile from './pages/profile'; // Import the Profile component
+import Dashboard from './pages/home'; // Import the Dashboard component
 
 function App() {
   const [user, setUser] = useState(null);
@@ -34,16 +34,23 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/signin" element={<SignIn />} />
         <Route path="/signup" element={<SignUp />} />
-        <Route path="/profile" element={<Profile />} />
+        <Route path='/profile' element={<Profile />} />
         {/* Add a new route for the AdditionalInfo form */}
         <Route
           path="/additionalinfo"
           element={
             hasAdditionalInfo(user) ? (
-              <Navigate to="/profile" /> // Redirect to the Profile page if additional info exists
+              <Navigate to="/dashboard" />
             ) : (
               <AdditionalInfo user={user} />
             )
+          }
+        />
+        {/* Add a route for the dashboard */}
+        <Route
+          path="/dashboard"
+          element={
+            hasAdditionalInfo(user) ? <Dashboard user={user} /> : <Navigate to="/additionalinfo" />
           }
         />
       </Routes>

@@ -105,5 +105,4 @@
 .profile {
     display: flex;
     flex-direction: row;
-    gap: 3vh;
 }

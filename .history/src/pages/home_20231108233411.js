@@ -25,7 +25,23 @@ function Home() {
 
         fetchData(); // Fetch data when the component mounts
     }, []);
-    
+
+    const [userData, setUserData] = useState(null);
+
+    useEffect(() => {
+      const fetchUserData = async () => {
+        if (user) {
+          const userDocRef = doc(database, 'users', user.uid);
+          const userDoc = await getDoc(userDocRef);
+  
+          if (userDoc.exists()) {
+            setUserData(userDoc.data());
+          }
+        }
+      };
+  
+      fetchUserData();
+    }, [user]);
 
     return (
         <div className='page'>
