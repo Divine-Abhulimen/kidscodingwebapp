@@ -1,0 +1,87 @@
+.container{
+    margin: auto;
+    margin-top: 30px;
+    width: 600px;
+    padding: 0;
+    padding-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+}
+
+.header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-top: 30px;
+}
+
+.text {
+    color: #FF8700;
+    font-size: 48px;
+    font-weight: 700;
+}
+
+.underline {
+    width: 61px;
+    height: 6px;
+    background: #FF8700;
+    border-radius: 9px;
+}
+
+.signin-form{
+    margin-top: 55px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.input{
+    display: flex;
+    align-items: center;
+    margin: auto;
+    width: 480px;
+    height: 70px;
+    background-color: #eaeaea;
+    border-radius: 6px;
+}
+
+.input input {
+    height: 50px;
+    width: 400px;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #797979;
+    font-size: 19px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.btn-container{
+    display: flex;
+    margin: 40px auto;
+}
+
+.signin-btn{
+    width: 220px;
+    height: 59px;
+    color: white;
+    background: #FF8700;
+    border-radius: 50px;
+    font-size: 19px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.links{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 19px;
+}
+
+.link {
+    color: #FF8700;
+}
