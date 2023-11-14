@@ -1,17 +1,18 @@
-import React, { useState } from 'react';
-import { database } from '../config';
-import { collection, doc, setDoc } from 'firebase/firestore';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate for navigation
+import React, { useState } from "react";
+import { database } from "../config";
+import { collection, doc, setDoc } from "firebase/firestore";
+import { useNavigate } from "react-router-dom"; // Import useNavigate for navigation
+import "./css/signin.css";
 
 const AdditionalInfo = ({ user }) => {
-  const [name, setName] = useState('');
-  const [classesRemaining, setClassesRemaining] = useState('');
+  const [name, setName] = useState("");
+  const [classesRemaining, setClassesRemaining] = useState("");
 
   const navigate = useNavigate(); // Get the navigate function from react-router-dom
 
   const handleSave = async () => {
     // Create a reference to the 'users' collection in Firestore
-    const usersCollection = collection(database, 'users');
+    const usersCollection = collection(database, "users");
 
     try {
       // Set the additional information in Firestore
@@ -24,35 +25,42 @@ const AdditionalInfo = ({ user }) => {
       });
 
       // Navigate to the dashboard or any other appropriate page
-      navigate('/profile');
+      navigate("/profile");
     } catch (error) {
-      console.error('Error saving additional information:', error);
+      console.error("Error saving additional information:", error);
     }
   };
 
   return (
-    <div>
-      <h2>Additional Information</h2>
-      <form>
-        <div>
-          <label>Name:</label>
+    <div className="container">
+      <div className="header">
+        {/*Title*/}
+        <div className="text">Additional Information</div>
+        <div className="underline"></div>
+      </div>
+
+      <form className="signin-form">
+        <div className="input">
           <input
             type="text"
+            placeholder="Name"
             value={name}
             onChange={(e) => setName(e.target.value)}
           />
         </div>
-        <div>
-          <label>Number of Classes Remaining:</label>
+        <div className="input">
           <input
             type="number"
             value={classesRemaining}
+            placeholder="Number of classes remaining"
             onChange={(e) => setClassesRemaining(e.target.value)}
           />
         </div>
-        <button type="button" onClick={handleSave}>
-          Save Information
-        </button>
+        <div className="btn-container">
+          <button type="button" onClick={handleSave}>
+            Save Information
+          </button>
+        </div>
       </form>
     </div>
   );

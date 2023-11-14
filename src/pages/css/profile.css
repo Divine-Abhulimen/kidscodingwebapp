@@ -1,12 +1,45 @@
 .profile-content {
-    display: flex;
-    flex-direction: row;
-    gap: 4vh;
+  display: flex;
+  flex-direction: row;
+  gap: 4vh;
 }
 
 a {
-    color: black;
+  color: black;
 }
 
+#username {
+    font-size: 40px;
+    color: #FF8700;
+    font-weight: 700;
+}
 
+.profile-info p {
+    font-size: 20px;
+}
+
+.profile-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 25vh;
+    margin: auto;
+}
+
+.profile-btns {
+    background-color: #FF8700;
+    font-size: 20px;
+    border-radius: 10px;
+    border: 0px;
+    color: white;
+    font-weight: 600;
+    width: 200px;
+    height: fit-content;
+}
+
+.profile-qr-btns{
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
+}
 

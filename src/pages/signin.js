@@ -3,7 +3,6 @@ import { Link, useNavigate } from 'react-router-dom'; // Import Link and useNavi
 import { auth } from '../config';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import "./css/signup.css";
-import { Link } from 'react-router-dom';
 
 const SignIn = () => {
   const [email, setEmail] = useState('');
