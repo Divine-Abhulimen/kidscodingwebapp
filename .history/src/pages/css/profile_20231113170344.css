@@ -1,0 +1,12 @@
+.profile-content {
+    display: flex;
+    flex-direction: row;
+    gap: 4vh;
+}
+
+a {
+    color: black;
+}
+
+
+
