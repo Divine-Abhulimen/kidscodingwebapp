@@ -84,12 +84,12 @@ const Profile = () => {
           auth.currentUser && (
             <div className="profile-container">
               <div className="profile-info">
-                <h2 id="username">Hello {userData?.name || auth.currentUser.displayName}</h2>
+                <h2>Hello {userData?.name || auth.currentUser.displayName}</h2>
                 <p>Email: {auth.currentUser.email}</p>
                 <p>Number of Classes Remaining: {userData?.classesRemaining || 'N/A'}</p>
               </div>
               <div className="profile-qr-btns">
-                <button onClick={handleMarkAttendance} className='profile-btns'>Mark Attendance</button>
+                <button onClick={handleMarkAttendance}>Mark Attendance</button>
 
                 <div>
                   {/* Display QR code for scanning */}
