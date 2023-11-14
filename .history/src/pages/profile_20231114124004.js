@@ -53,25 +53,10 @@ const Profile = () => {
     }
   };
 
-  const generateQRCodeValue = () => {
-    // Generate a unique value, e.g., based on timestamp
-    return new Date().toISOString();
-  };
-
-  const handleScan = async (data) => {
-    if (data) {
-      setScannedData(data);
-      // Perform any additional logic with the scanned data
-      // For example, you can update the UI or call the handleMarkAttendance function
-
-      // Simulate an action based on the scanned data (replace with your logic)
-      console.log('Scanned data:', data);
-
-      // Mark attendance when a specific condition is met (replace with your logic)
-      if (data === generateQRCodeValue()) {
-        await handleMarkAttendance();
-      }
-    }
+  const handleScan = (data) => {
+    setScannedData(data);
+    // Perform any additional logic with the scanned data
+    // For example, you can update the UI or call the handleMarkAttendance function
   };
 
   return (
@@ -90,7 +75,7 @@ const Profile = () => {
 
             <div>
               {/* Display QR code for scanning */}
-              <QRCode value={generateQRCodeValue()} />
+              <QRCode value="data-to-be-encoded" />
             </div>
           </div>
         )
