@@ -4,11 +4,10 @@ import { auth, database } from '../config';
 import { doc, getDoc } from 'firebase/firestore';
 import './css/index.css';
 import { collection, getDocs } from 'firebase/firestore';
+import { useUser } from '../Usercontext.js'; // Import your useUser hook
 
 function Home() {
   const [courseData, setCourseData] = useState([]);
-  const [userData, setUserData] = useState(null);
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -27,38 +26,9 @@ function Home() {
     };
 
     fetchData(); // Fetch data when the component mounts
-
-    const cachedUserData = localStorage.getItem('userData');
-    if (cachedUserData) {
-      setUserData(JSON.parse(cachedUserData));
-      setLoading(false);
-    } else {
-      const user = auth.currentUser;
-
-      const fetchUserData = async () => {
-        if (user) {
-          try {
-            const userDocRef = doc(database, 'users', user.uid);
-            const userDoc = await getDoc(userDocRef);
-
-            if (userDoc.exists()) {
-              const newUserData = userDoc.data();
-              setUserData(newUserData);
-
-              // Cache the fetched user data in localStorage
-              localStorage.setItem('userData', JSON.stringify(newUserData));
-            }
-          } catch (error) {
-            console.error('Error fetching user data:', error);
-          } finally {
-            setLoading(false);
-          }
-        }
-      };
-
-      fetchUserData();
-    }
   }, []);
+
+  const { user, loading } = useUser(); // Use the useUser hook
 
   return (
     <div className='page'>
@@ -71,8 +41,8 @@ function Home() {
           </div>
           <div className='top-image'>
             {loading ? (<h4>Loading...</h4>) : (
-              auth.currentUser && (
-                <h4>Hello {userData?.name || auth.currentUser.displayName}</h4>
+              user && (
+                <h4>Hello {user.name || auth.currentUser.displayName}</h4>
               )
             )}
           </div>

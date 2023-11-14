@@ -38,7 +38,7 @@ a:hover {
 #logo-title {
     color: #000;
 
-    font-size: 24px;
+    font-size: 14px;
     font-style: normal;
     font-weight: 600;
     line-height: 157.023%;
@@ -68,8 +68,4 @@ a:hover {
 .active {
     color: white;
     background: #202020;
-}
-
-#be-fut{
-    font-size: 20px;
 }

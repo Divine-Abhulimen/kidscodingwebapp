@@ -86,3 +86,6 @@
     color: #FF8700;
 }
 
+.profile-content {
+    display: flex;
+}

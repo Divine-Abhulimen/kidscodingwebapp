@@ -10,7 +10,7 @@ import Logo from './css/images/8481fa_30e0db0f56c84764ae54c71e2541f09f~mv2.webp'
 function Sidepanel() {
     return (
         <div className='side-panel'>
-            <div className='side-nav'>  
+            <div className='side-nav'>
                 <div className='logo'>
                     <img src={Logo} id='logoicon' />
                     <div className='text'>
@@ -20,7 +20,7 @@ function Sidepanel() {
                 </div>
                 <a href="/" id='nav-item' className='active'><img src={HomeIcons} id='icon' />Home</a>
                 <a id='nav-item'><img src={Attendance} id='icon' />Attendance</a>
-                <a href='/profile' id='nav-item'><img src={Attendance} id='icon' />Profile</a>
+                <a id='nav-item'><img src={Attendance} id='icon' />Profile</a>
                 <a id='nav-item'><img src={BookSolid} id='icon' />Courses</a>
                 <a id='nav-item'><img src={Chat} id='icon' />Class Conversation</a>
                 <a id='nav-item'><img src={Jigsaw} id='icon' /> Assessments</a>

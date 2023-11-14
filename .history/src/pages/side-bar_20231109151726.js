@@ -10,7 +10,7 @@ import Logo from './css/images/8481fa_30e0db0f56c84764ae54c71e2541f09f~mv2.webp'
 function Sidepanel() {
     return (
         <div className='side-panel'>
-            <div className='side-nav'>  
+            <div className='side-nav'>
                 <div className='logo'>
                     <img src={Logo} id='logoicon' />
                     <div className='text'>

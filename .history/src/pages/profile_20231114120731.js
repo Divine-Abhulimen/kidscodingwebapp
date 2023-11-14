@@ -3,7 +3,7 @@ import { auth, database } from '../config';
 import { doc, getDoc, updateDoc } from 'firebase/firestore';
 import Sidepanel from './side-bar';
 import QRCode from 'qrcode.react';
-import { QrReader } from 'react-qr-reader';
+import QrReader from 'react-qr-reader';
 import './css/profile.css';
 
 const Profile = () => {
