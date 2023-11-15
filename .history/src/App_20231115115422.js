@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
-import { onAuthStateChanged, signOut } from 'firebase/auth'; // Import the Firebase auth module
+import { onAuthStateChanged } from 'firebase/auth'; // Import the Firebase auth module
 import { auth } from './config';
 import Home from './pages/home';
 import SignIn from './pages/signin';
 import SignUp from './pages/signup';
 import AdditionalInfo from './pages/additionalinfo'; // Import the AdditionalInfo component
 import Profile from './pages/profile'; // Import the Profile component
-import { database } from './config'; // Adjust the path based on your project structure
-import { doc, getDoc, updateDoc } from 'firebase/firestore';
+
 function App() {
   const [user, setUser] = useState(null);
 
@@ -44,6 +43,22 @@ function App() {
       console.error('Error deducting classes:', error);
     }
   };
+
+  // ... (rest of the code)
+
+  return (
+    // ... (return statement)
+  );
+}
+
+export default App;
+Remember to adjust the file paths, imports, and any other necessary details based on your actual project structure.
+
+
+
+
+
+
 
   // Define a function to check if the user has provided additional information
   const hasAdditionalInfo = (user) => {

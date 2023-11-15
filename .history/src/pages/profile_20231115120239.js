@@ -1,23 +1,11 @@
-
-import React, { useState, useEffect } from "react";
-import { auth, database } from "../config";
-import { doc, getDoc, updateDoc } from "firebase/firestore";
-import Sidepanel from "./side-bar";
-import QRCode from "qrcode.react";
-import { QrReader } from "react-qr-reader";
-import "./css/profile.css";
-import Waiver from "../waiver";
+import React, { useState, useEffect } from 'react';
+import { auth, database } from '../config';
+import { doc, getDoc, updateDoc } from 'firebase/firestore';
+import Sidepanel from './side-bar';
+import QRCode from 'react-qr-code';
+import './css/profile.css';
 
 const Profile = () => {
-  {
-    /*Waiver form*/
-  }
-
-  const [showWaiver, setShowWaiver] = useState(true);
-  const closeWaiver = () => {
-    setShowWaiver(false);
-  };
-
   const [userData, setUserData] = useState(() => {
     const cachedUserData = localStorage.getItem('userData');
     return cachedUserData ? JSON.parse(cachedUserData) : null;
@@ -86,15 +74,45 @@ const Profile = () => {
     }
   };
 
+  const userDocRef = doc(database, 'users', user.uid);
+const userDoc = await getDoc(userDocRef);
+
+if (userDoc.exists()) {
+  const newUserData = userDoc.data();
+
+  // Check if it's the user's first login or if it's been more than 24 hours
+  const lastLogin = newUserData.lastLogin || 0;
+  const currentTimestamp = Date.now();
+  const twentyFourHoursInMilliseconds = 24 * 60 * 60 * 1000;
+
+  if (currentTimestamp - lastLogin >= twentyFourHoursInMilliseconds) {
+    // Deduct a class and update the lastLogin timestamp
+    const updatedClassesRemaining = newUserData.classesRemaining - 1;
+
+    await updateDoc(userDocRef, {
+      classesRemaining: updatedClassesRemaining,
+      lastLogin: currentTimestamp,
+    });
+
+    // Fetch user data to update the displayed data
+    await fetchUserData();
+  } else {
+    // Update the lastLogin timestamp without deducting a class
+    await updateDoc(userDocRef, {
+      lastLogin: currentTimestamp,
+    });
+
+    setUserData(newUserData);
+    localStorage.setItem('userData', JSON.stringify(newUserData));
+  }
+}
+
+
   return (
-    <div className="waiver-popup">
-      {showWaiver && <Waiver onClose={closeWaiver} />}
-
-      {!showWaiver && (
-        <div className="profile-content">
-          <Sidepanel />
-
-          {loading ? (
+    <>
+      <div className='profile-content'>
+        <Sidepanel />
+        {loading ? (
           <p>Loading...</p>
         ) : (
           auth.currentUser && (
@@ -117,10 +135,10 @@ const Profile = () => {
 
           )
         )}
-        </div>
-      )}
-    </div>
+      </div>
 
+
+    </>
   );
 };
 

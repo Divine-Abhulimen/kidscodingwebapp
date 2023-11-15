@@ -1,23 +1,11 @@
-
-import React, { useState, useEffect } from "react";
-import { auth, database } from "../config";
-import { doc, getDoc, updateDoc } from "firebase/firestore";
-import Sidepanel from "./side-bar";
-import QRCode from "qrcode.react";
-import { QrReader } from "react-qr-reader";
-import "./css/profile.css";
-import Waiver from "../waiver";
+import React, { useState, useEffect } from 'react';
+import { auth, database } from '../config';
+import { doc, getDoc, updateDoc } from 'firebase/firestore';
+import Sidepanel from './side-bar';
+import QRCode from 'react-qr-code';
+import './css/profile.css';
 
 const Profile = () => {
-  {
-    /*Waiver form*/
-  }
-
-  const [showWaiver, setShowWaiver] = useState(true);
-  const closeWaiver = () => {
-    setShowWaiver(false);
-  };
-
   const [userData, setUserData] = useState(() => {
     const cachedUserData = localStorage.getItem('userData');
     return cachedUserData ? JSON.parse(cachedUserData) : null;
@@ -87,14 +75,10 @@ const Profile = () => {
   };
 
   return (
-    <div className="waiver-popup">
-      {showWaiver && <Waiver onClose={closeWaiver} />}
-
-      {!showWaiver && (
-        <div className="profile-content">
-          <Sidepanel />
-
-          {loading ? (
+    <>
+      <div className='profile-content'>
+        <Sidepanel />
+        {loading ? (
           <p>Loading...</p>
         ) : (
           auth.currentUser && (
@@ -117,10 +101,10 @@ const Profile = () => {
 
           )
         )}
-        </div>
-      )}
-    </div>
+      </div>
 
+
+    </>
   );
 };
 
