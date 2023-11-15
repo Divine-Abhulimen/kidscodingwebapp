@@ -27,8 +27,6 @@ function Sidepanel() {
                 <a id='nav-item'><img src={Jigsaw} id='icon' /> Assessments</a>
                 <a id='nav-item'><img src={Gift} id='icon' />Incentives</a>
             </div>
-
-            <SignoutButton />
         </div>
     )
 }
