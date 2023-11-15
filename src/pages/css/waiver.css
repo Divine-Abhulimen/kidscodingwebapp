@@ -1,0 +1,49 @@
+.waiver-container{
+    margin: auto;
+    margin-top: 30px;
+    width: 600px;
+    padding: 0;
+    padding-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.waiver-header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.text {
+    color: #FF8700;
+    font-size: 48px;
+    font-weight: 700;
+}
+
+.underline {
+    width: 61px;
+    height: 6px;
+    background: #FF8700;
+    border-radius: 9px;
+}
+
+#agree-btn{
+    width: 220px;
+    height: 59px;
+    color: white;
+    background: #FF8700;
+    border: 0px;
+    border-radius: 50px;
+    font-size: 19px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.agree-btn-container {
+    display: flex;
+    justify-content: center;
+}
