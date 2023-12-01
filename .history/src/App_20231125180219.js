@@ -5,12 +5,11 @@ import { auth } from './config';
 import Home from './pages/home';
 import SignIn from './pages/signin';
 import SignUp from './pages/signup';
-import AddCourse from './pages/add-course';
 import AdditionalInfo from './pages/additionalinfo'; // Import the AdditionalInfo component
 import Profile from './pages/profile'; // Import the Profile component
 import { database } from './config'; // Adjust the path based on your project structure
 import { doc, getDoc, updateDoc } from 'firebase/firestore';
-import NewUser from './pages/Newuser';
+import Newuser from './pages/Newuser';
 
 function App() {
   const [user, setUser] = useState(null);
@@ -61,7 +60,6 @@ function App() {
         <Route path="/signup" element={<SignUp />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/newuser" element={<NewUser />} />
-        <Route path="/add-course" element={<AddCourse />} />
         {/* Add a new route for the AdditionalInfo form */}
         <Route
           path="/additionalinfo"

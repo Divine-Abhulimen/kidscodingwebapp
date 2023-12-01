@@ -5,6 +5,7 @@ import Sidepanel from "./side-bar";
 import "./css/profile.css";
 import Waiver from "../waiver";
 
+
 const Profile = () => {
   const [userData, setUserData] = useState(() => {
     const cachedUserData = localStorage.getItem("userData");
@@ -95,5 +96,6 @@ const Profile = () => {
     </div>
   );
 };
+
 
 export default Profile;
