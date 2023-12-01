@@ -63,7 +63,6 @@ function App() {
         <Route path="/profile" element={<Profile />} />
         <Route path="/newuser" element={<NewUser />} />
         <Route path="/add-course" element={<AddCourse />} />
-        <Route path='/forgotpassword' element={<Forgotpassword />} />
         {/* Add a new route for the AdditionalInfo form */}
         <Route
           path="/additionalinfo"

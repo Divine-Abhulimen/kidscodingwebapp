@@ -86,9 +86,7 @@ const SignIn = () => {
           </button>
         </div>
         <div className="links">
-          <a href="/forgotpassword">
-            Forgot My Password
-          </a>
+          <Forgotpassword />
           <p>
             Don't have an account? <Link className="link" to="/signup">Sign Up</Link>
           </p>
