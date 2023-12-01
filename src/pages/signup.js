@@ -53,7 +53,7 @@ const SignUp = () => {
         </div>
 
         <div className="btn-container">
-          {/*Sign-in button*/}
+          {/*Sign-up button*/}
           <button className="signin-btn" type="button" onClick={handleSignUp}>
             Sign Up
           </button>

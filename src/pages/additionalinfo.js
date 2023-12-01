@@ -7,6 +7,7 @@ import "./css/signin.css";
 const AdditionalInfo = ({ user }) => {
   const [name, setName] = useState("");
   const [classesRemaining, setClassesRemaining] = useState("");
+  const [waiver, setWaiver] = useState();
 
   const navigate = useNavigate(); // Get the navigate function from react-router-dom
 
@@ -17,11 +18,13 @@ const AdditionalInfo = ({ user }) => {
     try {
       // Set the additional information in Firestore
       const userDocRef = doc(usersCollection, user.uid);
-
+      setWaiver(false);
+      
       // Use setDoc to create a new document if it doesn't exist or update the existing document
       await setDoc(userDocRef, {
         name,
         classesRemaining,
+        waiver
       });
 
       // Navigate to the dashboard or any other appropriate page

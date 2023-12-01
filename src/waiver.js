@@ -1,7 +1,21 @@
 import React from "react";
+import { auth, database } from "./config";
+import { doc, getDoc, updateDoc, setDoc } from "firebase/firestore";
 import "./pages/css/waiver.css";
 
-const Waiver = ({ onClose }) => {
+const Waiver = () => {
+
+  const handleAgreeWaiver = async () => {
+    try {
+      // Update the waiver field in user data to "signed"
+      const userDocRef = doc(database, "users", auth.currentUser.uid);
+      await updateDoc(userDocRef, { waiver: true });
+
+    } catch (error) {
+      console.error("Error updating waiver:", error);
+    }
+  };
+
   return (
     <div className="waiver-container">
       <div className="waiver-header">
@@ -69,7 +83,7 @@ const Waiver = ({ onClose }) => {
           sed aliquet urna sodales sit amet.
         </p>
         <div className="agree-btn-container">
-          <button id="agree-btn" onClick={onClose}>
+          <button id="agree-btn" onClick={handleAgreeWaiver}>
             Agree
           </button>
         </div>

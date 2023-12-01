@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom'; // Import Link and useNavigate
-import { auth, database } from '../config';
-import { signInWithEmailAndPassword } from 'firebase/auth';
-import { doc, getDoc, updateDoc, serverTimestamp } from 'firebase/firestore';
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom"; // Import Link and useNavigate
+import { auth, database } from "../config";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { doc, getDoc, updateDoc, serverTimestamp } from "firebase/firestore";
 import "./css/signup.css";
 
 const SignIn = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const navigate = useNavigate(); // Initialize useNavigate
 
   const handleSignIn = async () => {
@@ -16,7 +16,7 @@ const SignIn = () => {
       // User signed in successfully
 
       // Fetch user data
-      const userDocRef = doc(database, 'users', auth.currentUser.uid);
+      const userDocRef = doc(database, "users", auth.currentUser.uid);
       const userDoc = await getDoc(userDocRef);
 
       if (userDoc.exists()) {
@@ -27,7 +27,8 @@ const SignIn = () => {
         const currentTime = new Date();
 
         // Calculate time difference in hours
-        const timeDifferenceInHours = Math.abs(currentTime - lastLogin) / (60 * 60 * 1000);
+        const timeDifferenceInHours =
+          Math.abs(currentTime - lastLogin) / (60 * 60 * 1000);
 
         // If it's the first login of the day or more than 24 hours have passed
         if (!lastLogin || timeDifferenceInHours > 24) {
@@ -40,7 +41,7 @@ const SignIn = () => {
         }
       }
 
-      navigate('/profile'); // Navigate to the profile page
+      navigate("/profile"); // Navigate to the profile page
     } catch (error) {
       console.error("Error signing in:", error);
     }
@@ -79,14 +80,15 @@ const SignIn = () => {
 
         <div className="btn-container">
           {/*Sign-in button*/}
-          <button type="button" onClick={handleSignIn}>
+          <button className="signin-btn" type="button" onClick={handleSignIn}>
             Sign In
           </button>
         </div>
-
-        <p>
-          Don't have an account? <Link to="/signup">Sign Up</Link>
-        </p>
+        <div className="links">
+          <p>
+            Don't have an account? <Link className="link" to="/signup">Sign Up</Link>
+          </p>
+        </div>
       </form>
     </div>
   );
