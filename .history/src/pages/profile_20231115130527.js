@@ -3,9 +3,10 @@ import React, { useState, useEffect } from "react";
 import { auth, database } from "../config";
 import { doc, getDoc, updateDoc } from "firebase/firestore";
 import Sidepanel from "./side-bar";
+import QRCode from "qrcode.react";
+import { QrReader } from "react-qr-reader";
 import "./css/profile.css";
 import Waiver from "../waiver";
-
 
 const Profile = () => {
   {
@@ -108,7 +109,7 @@ const Profile = () => {
 
                 <div>
                   {/* Display QR code for scanning */}
-                  {/* <QRCode value={generateQRCodeValue()} /> */}
+                  <QRCode value={generateQRCodeValue()} />
                 </div>
               </div>
             </div>
@@ -122,6 +123,5 @@ const Profile = () => {
 
   );
 };
-
 
 export default Profile;

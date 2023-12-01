@@ -9,9 +9,13 @@ import AdditionalInfo from './pages/additionalinfo'; // Import the AdditionalInf
 import Profile from './pages/profile'; // Import the Profile component
 import { database } from './config'; // Adjust the path based on your project structure
 import { doc, getDoc, updateDoc } from 'firebase/firestore';
-import NewUser from './pages/Newuser';
+import createUsersFromFirestore from './pages/Newuser';
 
 function App() {
+  useEffect(() => {
+    // Call the function here
+    createUsersFromFirestore();
+  }, []);
   const [user, setUser] = useState(null);
 
   useEffect(() => {
@@ -59,7 +63,6 @@ function App() {
         <Route path="/signin" element={<SignIn />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/profile" element={<Profile />} />
-        <Route path="/newuser" element={<NewUser />} />
         {/* Add a new route for the AdditionalInfo form */}
         <Route
           path="/additionalinfo"

@@ -9,7 +9,7 @@ import AdditionalInfo from './pages/additionalinfo'; // Import the AdditionalInf
 import Profile from './pages/profile'; // Import the Profile component
 import { database } from './config'; // Adjust the path based on your project structure
 import { doc, getDoc, updateDoc } from 'firebase/firestore';
-import NewUser from './pages/Newuser';
+import Newuser from './pages/Newuser';
 
 function App() {
   const [user, setUser] = useState(null);
